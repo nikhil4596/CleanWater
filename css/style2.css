@@ -1,0 +1,10 @@
+.right {
+    text-align: right;
+    float: right;
+}
+.centerCustom {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
