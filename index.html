@@ -1,143 +1,92 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Clean Water</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans:600'>
     <link rel="stylesheet" href="css/style.css">
 
-
-
 </head>
-
 <body>
 <div id="menu">
     <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #0066cc;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">Welcome to Clean Water</a>
     </nav>
 </div>
-<div class="logmod">
-    <div class="logmod__wrapper">
-        <div class="logmod__container">
-            <ul class="logmod__tabs">
-                <li data-tabtar="lgm-2"><a href="#">Login</a></li>
-                <li data-tabtar="lgm-1"><a href="#">Sign Up</a></li>
-            </ul>
-            <div class="logmod__tab-wrapper">
-                <div class="logmod__tab lgm-1">
-                    <div class="logmod__heading">
-                        <span class="logmod__heading-subtitle">Enter your personal details <strong>to create an acount</strong></span>
-                    </div>
-                    <div class="logmod__form">
-                        <form accept-charset="utf-8" action="#" class="simform">
-                            <div class="sminputs">
-                                <div class="input full">
-                                    <label class="string optional" for="user-name">Email*</label>
-                                    <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
-                                </div>
-                            </div>
-                            <div class="sminputs">
-                                <div class="input string optional">
-                                    <label class="string optional" for="user-pw">Password *</label>
-                                    <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="text" size="50" />
-                                </div>
-                                <div class="input string optional">
-                                    <label class="string optional" for="user-pw-repeat">Repeat password *</label>
-                                    <input class="string optional" maxlength="255" id="user-pw-repeat" placeholder="Repeat password" type="text"
-                                           size="50" />
-                                </div>
-                            </div>
-                            <div class="simform__actions">
-                                <input class="sumbit" name="commit" type="sumbit" value="Create Account" />
-                            </div>
-                        </form>
-                    </div>
-                    <div class="logmod__alter">
-                        <div class="logmod__alter-container">
-                            <a href="#" class="connect facebook">
-                                <div class="connect__icon">
-                                    <i class="fa fa-facebook"></i>
-                                </div>
-                                <div class="connect__context">
-                                    <span>Create an account with <strong>Facebook</strong></span>
-                                </div>
-                            </a>
-
-                            <a href="#" class="connect googleplus">
-                                <div class="connect__icon">
-                                    <i class="fa fa-google-plus"></i>
-                                </div>
-                                <div class="connect__context">
-                                    <span>Create an account with <strong>Google+</strong></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <div class="sign-in-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
                 </div>
-                <div class="logmod__tab lgm-2">
-                    <div class="logmod__heading">
-                        <span class="logmod__heading-subtitle">Enter your email and password <strong>to sign in</strong></span>
-                    </div>
-                    <div class="logmod__form">
-                        <form accept-charset="utf-8" action="#" class="simform">
-                            <div class="sminputs">
-                                <div class="input full">
-                                    <label class="string optional" for="user-name">Email*</label>
-                                    <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
-                                </div>
-                            </div>
-                            <div class="sminputs">
-                                <div class="input full">
-                                    <label class="string optional" for="user-pw">Password *</label>
-                                    <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
-                                    <span class="hide-password">Show</span>
-                                </div>
-                            </div>
-                            <div class="simform__actions">
-                                <input class="sumbit" name="commit" type="sumbit" value="Log In" />
-                                <span class="simform__actions-sidetext"><a class="special" role="link" href="#">Forgot your password?<br>
-                                    Click here</a></span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="logmod__alter">
-                        <div class="logmod__alter-container">
-                            <a href="#" class="connect facebook">
-                                <div class="connect__icon">
-                                    <i class="fa fa-facebook"></i>
-                                </div>
-                                <div class="connect__context">
-                                    <span>Sign in with <strong>Facebook</strong></span>
-                                </div>
-                            </a>
-                            <a href="#" class="connect googleplus">
-                                <div class="connect__icon">
-                                    <i class="fa fa-google-plus"></i>
-                                </div>
-                                <div class="connect__context">
-                                    <span>Sign in with <strong>Google+</strong></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <input id="check" type="checkbox" class="check" checked>
+                    <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                </div>
+                <div class="group" id="login">
+                    <input type="submit" class="button" value="Sign In">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <a href="#forgot">Forgot Password?</a>
+                </div>
+            </div>
+            <div class="sign-up-htm">
+                <div class="group">
+                    <label for="user" class="label">Username</label>
+                    <input id="user" type="text" class="input">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Repeat Password</label>
+                    <input id="pass" type="password" class="input" data-type="password">
+                </div>
+                <div class="group">
+                    <label for="pass" class="label">Email Address</label>
+                    <input id="pass" type="text" class="input">
+                </div>
+                <div class="group" id="register">
+                    <input type="submit" class="button" value="Sign Up">
+                </div>
+                <div class="hr"></div>
+                <div class="foot-lnk">
+                    <label for="tab-1">Already Member?</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-<script src="js/index.js"></script>
 
+<!-- TODO: Here goes your content! -->
+
+
+
+<!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/index2.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 </html>
