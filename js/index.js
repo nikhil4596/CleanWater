@@ -9,7 +9,11 @@ var txtregisterPassword2 = document.getElementById('password3');
 var txtregisterRole = document.getElementById('role');
 var btnsignin = document.getElementById('login');
 var btnregister = document.getElementById('register');
-var currentUser;
+var currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+if (currentUser === null) {
+    currentUser = null;
+    sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+}
 var reports = JSON.parse(sessionStorage.getItem('reports'));
 if (reports === null) {
     reports = [];
@@ -56,6 +60,8 @@ $('#register').click(function(){
             sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
             window.location.href = "main.html";
         } else {
+            document.getElementById('emailLabel2').innerHTML = "Email Address - User already exists!";
+            document.getElementById('emailLabel2').focus();
             console.log("User already exists");
         }
     } else {
@@ -82,7 +88,12 @@ $('#register').click(function(){
 $('#login').click(function(){
     var email = txtsignInEmail.value;
     var pass = txtsignInPassword.value;
-    var role = txtregisterRole.value;
+    var role;
+    if (currentUser === null) {
+        role = 'N/A';
+    } else {
+        role = currentUser.userRole;
+    }
     var auth = false;
     users.forEach(function (user) {
         if (user.email === email && user.pass == pass) {
@@ -97,6 +108,8 @@ $('#login').click(function(){
         sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
         window.location.href = "main.html";
     } else {
+        document.getElementById('emailLabel').innerHTML = "Email Address - User does not exist";
+        document.getElementById('emailLabel').focus();
         console.log('User doesnot exist');
     }
 });

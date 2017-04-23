@@ -99,7 +99,6 @@ function removeCurrentUser() {
 $('#logOut').click(function () {
     console.log("logged you out bithc");
     currentUser = null;
-    sessionStorage.setItem('currentUser',JSON.stringify(null));
     window.location.href = 'index.html';
 });
 
