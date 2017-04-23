@@ -20,10 +20,10 @@
             <div  id="navbarNavDropdown" class="navbar-collapse collapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reports</a>
+                        <a data-target="#myModalReports" data-toggle="modal" class="dropdown-item nav-link" id="reportsList" href="#myModalReports">Reports</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,10 +38,13 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
+                        <a class="nav-link" id="descrp" href="#">Logged in as: </a>
+                    </li>
+                    <li class="nav-item">
                         <a data-target="#myModalEditProfile" data-toggle="modal" class="dropdown-item nav-link" id="editProfile" href="#myModalEditProfile">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Logout</a>
+                        <a class="nav-link" id="logOut">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -85,7 +88,7 @@
                                 <input value="0" type="number" class="form-control" id="long1"/>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-default" value="Create Report"/>
+                                <input type="submit" class="btn btn-default" id="createSourceReport" value="Create Report"/>
                             </div>
                         </form>
                     </div>
@@ -128,7 +131,7 @@
                                 <input value="0" type="number" class="form-control" id="long2"/>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-default" value="Create Report"/>
+                                <input type="submit" class="btn btn-default" id="createPurityReport" value="Create Report"/>
                             </div>
                         </form>
                     </div>
@@ -177,10 +180,10 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="close" data-dismiss="modal">&times</button>
                         <h4 class="modal-title">List of Report</h4>
+                        <button class="close" data-dismiss="modal">&times</button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" id="listOfReports">
                         <p>List of Reports</p>
                     </div>
                 </div>
@@ -195,7 +198,7 @@
                         <button class="close" data-dismiss="modal">&times</button>
                     </div>
                     <div class="modal-body">
-                        <form action="" method="">
+                        <form action="">
                             <div class="form-group">
                                 <label for="lat3">Edit Name</label>
                                 <input type="text" class="form-control" id="editName"/>
@@ -205,7 +208,7 @@
                                 <input type="text" class="form-control" id="editAddress"/>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-default" value="Save Changes"/>
+                                <input type="submit" id="editProfileSubmit" class="btn btn-default" value="Save Changes"/>
                             </div>
                         </form>
                     </div>
@@ -215,24 +218,36 @@
         <!--Here is the map-->
         <div id="map"></div>
         <script>
+            var reports = JSON.parse(sessionStorage.getItem('reports'));
             function initMap() {
                 var uluru = {lat:0, lng: 0};
                 var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 3,
                     center: uluru
                 });
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
+                reports.forEach(function (item) {
+                    var location = {lat:item.latitude, lng:item.longitude};
+                    var marker = new google.maps.Marker({
+                        position: location,
+                        map: map
+                    });
                 });
+
                 map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
             }
+//            function addMarker(lat, long) {
+//                var marker = new google.maps.Marker({
+//                    position: new google.maps.LatLng(lat, long),
+//                    map: map
+//                });
+//            }
+
         </script>
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgc8dGZf03PK9phXoRaLEJ09AN6CnJKQA&callback=initMap">
         </script>
         <!--Here are our scripts-->
-        <script src="js/index.js"></script>
+        <script src="js/app.js"></script>
         <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>

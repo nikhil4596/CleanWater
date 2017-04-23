@@ -31,12 +31,12 @@
         <div class="login-form">
             <div class="sign-in-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="emailAddress" class="label">Email Address</label>
+                    <input id="emailAddress" type="email" class="input">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <label for="password" class="label">Password</label>
+                    <input id="password" type="password" class="input" data-type="password">
                 </div>
                 <div class="group">
                     <input id="check" type="checkbox" class="check" checked>
@@ -52,20 +52,25 @@
             </div>
             <div class="sign-up-htm">
                 <div class="group">
-                    <label for="user" class="label">Username</label>
-                    <input id="user" type="text" class="input">
+                    <label for="emailAddress2" class="label">Email Address</label>
+                    <input id="emailAddress2" type="email" class="input">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <label for="password2" class="label">Password</label>
+                    <input id="password2" type="password" class="input" data-type="password">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Repeat Password</label>
-                    <input id="pass" type="password" class="input" data-type="password">
+                    <label for="password3" class="label" id="retypePass">Repeat Password</label>
+                    <input id="password3" type="password" class="input" data-type="password">
                 </div>
                 <div class="group">
-                    <label for="pass" class="label">Email Address</label>
-                    <input id="pass" type="text" class="input">
+                    <label for="role" class="label">Role</label>
+                    <select class="select" id="role">
+                        <option class="label" selected="selected">User</option>
+                        <option class="label">Worker</option>
+                        <option class="label">Manager</option>
+                        <option class="label">Administrator</option>
+                    </select>
                 </div>
                 <div class="group" id="register">
                     <input type="submit" class="button" value="Sign Up">
@@ -80,13 +85,26 @@
 </div>
 
 
-<!-- TODO: Here goes your content! -->
+<!--Here goes the content! -->
 
 
+<!--<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>-->
+<!--<script>-->
+    <!--// Initialize Firebase-->
+    <!--var config = {-->
+        <!--apiKey: "AIzaSyAC52E9LxtD4LJydgPL6ItYQKU_uDLZJZY",-->
+        <!--authDomain: "cs2340-clearwater.firebaseapp.com",-->
+        <!--databaseURL: "https://cs2340-clearwater.firebaseio.com",-->
+        <!--projectId: "cs2340-clearwater",-->
+        <!--storageBucket: "cs2340-clearwater.appspot.com",-->
+        <!--messagingSenderId: "869153090400"-->
+    <!--};-->
+    <!--firebase.initializeApp(config);-->
+<!--</script>-->
 
 <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
 <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/index.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
