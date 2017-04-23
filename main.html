@@ -6,67 +6,217 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Clean Water</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/styleExtra.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
 </head>
-<body>
-<div id="menu">
-    <nav class="navbar navbar-toggleable-md navbar-light" style="background-color: #0066cc;">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Clean Water</a>
-        <div  id="navbarNavDropdown" class="navbar-collapse collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Reports</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Create Report</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Edit Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-            </ul>
+    <body>
+        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">Clean Water</a>
+            <div  id="navbarNavDropdown" class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reports</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Create Report
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a data-target="#myModalSource" data-toggle="modal" class="dropdown-item nav-link" id="sourceReport" href="#myModalSource">Water Source Report</a>
+                            <a data-target="#myModalPurity" data-toggle="modal" class="dropdown-item nav-link" id="purityReport" href="#myModalPurity">Water Purity Report</a>
+                            <a data-target="#myModalHistory" data-toggle="modal" class="dropdown-item nav-link" id="historicalReport" href="#myModalHistory">Water Historical Report</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Edit Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    <!--Here are the modals for each action-->
+        <div class="modal" id="myModalSource">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Create a Source Report</h4>
+                        <button class="close" data-dismiss="modal">&times</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="waterType">Water Type</label>
+                                <select class="form-control" id="waterType">
+                                    <option selected="selected">Bottled</option>
+                                    <option>Well</option>
+                                    <option>Lake</option>
+                                    <option>Stream</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="waterCondition">Water Condition</label>
+                                <select class="form-control" id="waterCondition">
+                                    <option selected="selected">Treatable</option>
+                                    <option>Potable</option>
+                                    <option>Waste</option>
+                                    <option>TreatableMuddy</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="lat1">Enter the Latitude</label>
+                                <input type="number" class="form-control" id="lat1"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="long1">Enter the Longitude</label>
+                                <input type="number" class="form-control" id="long1"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-default" value="Create Report"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-</div>
-
-
-<!-- TODO: Here goes your content! -->
-
-<h3>My Google Maps Demo</h3>
-<div id="map"></div>
-<script>
-    function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: uluru
-        });
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
-        });
-    }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgc8dGZf03PK9phXoRaLEJ09AN6CnJKQA&callback=initMap">
-</script>
-
-<!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-</body>
+        <div class="modal" id="myModalPurity">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <h4 class="modal-title">Create a Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="waterCondition">Water Condition</label>
+                                <select class="form-control" id="waterCondition2">
+                                    <option selected="selected">Treatable</option>
+                                    <option>Potable</option>
+                                    <option>Waste</option>
+                                    <option>TreatableMuddy</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="virusPPM">Virus PPM</label>
+                                <input type="number" class="form-control" id="virusPPM"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="contaminantPPM">Contaminant PPM</label>
+                                <input type="number" class="form-control" id="contaminantPPM"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="lat2">Enter the Latitude</label>
+                                <input type="number" class="form-control" id="lat2"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="long2">Enter the Longitude</label>
+                                <input type="number" class="form-control" id="long2"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-default" value="Create Report"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModalHistory">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <h4 class="modal-title">Create a Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <input type="" class="form-control" id="year"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="PPM">Water Condition</label>
+                                <select class="form-control" id="PPM">
+                                    <option selected="selected">Virus</option>
+                                    <option>Contaminant</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="lat3">Enter the Latitude</label>
+                                <input type="number" class="form-control" id="lat3"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="long3">Enter the Longitude</label>
+                                <input type="number" class="form-control" id="long3"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-default" value="Create Report"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModalReports">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <h4 class="modal-title">List of Report</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>List of Reports</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="editProfile">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times</button>
+                        <h4 class="modal-title">Edit Profile</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Edit Profile</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Here is the map-->
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var uluru = {lat:0, lng: 0};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 3,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+                map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgc8dGZf03PK9phXoRaLEJ09AN6CnJKQA&callback=initMap">
+        </script>
+        <!--Here are our scripts-->
+        <script src="js/index.js"></script>
+        <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
 </html>

@@ -1,0 +1,22 @@
+/*.right {*/
+    /*text-align: right;*/
+    /*float: right;*/
+/*}*/
+/*.centerCustom {*/
+    /*height: 100%;*/
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+/*}*/
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px
+}
+#map {
+    width: 100%;
+    height: 92%;
+    background-color: grey;
+}
