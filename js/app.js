@@ -57,7 +57,7 @@ $('#editProfileSubmit').click(function () {
 $('#reportsList').click(function () {
     document.getElementById('listOfReports').innerHTML = "";
     reports.forEach(function (item) {
-        document.getElementById('listOfReports').innerHTML += "Created by: " + item.authorEmail + " on " + item.timeS + " at " + item.latitude + "," + item.longitude+ " </br>";
+        document.getElementById('listOfReports').innerHTML += "Created by: " + item.authorEmail + " on " + item.timeS + " at " + item.latitude + "," + item.longitude+ " type: " + item.reportType +" </br>";
     })
 })
 
@@ -66,7 +66,7 @@ $('#createSourceReport').click(function () {
     var waterCondition = document.getElementById('waterCondition').value;
     var lat = Number(document.getElementById('lat1').value);
     var long = Number(document.getElementById('long1').value);
-    var report = new SourceReport(currentUser.email, waterType, waterCondition, lat, long, 'source');
+    var report = new SourceReport(currentUser.email, waterType, waterCondition, lat, long, 'Source');
     console.log(report);
     reports.push(report);
     sessionStorage.setItem('reports',JSON.stringify(reports));
@@ -81,7 +81,7 @@ $('#createPurityReport').click(function () {
     var long = Number(document.getElementById('long2').value);
     var virus = Number(document.getElementById('virusPPM').value);
     var contaminant = Number(document.getElementById('contaminantPPM').value);
-    var report = new PurityReport(currentUser.email, waterCondition, virus, contaminant, lat, long, 'purity');
+    var report = new PurityReport(currentUser.email, waterCondition, virus, contaminant, lat, long, 'Purity');
     console.log(report);
     reports.push(report);
     sessionStorage.setItem('reports',JSON.stringify(reports));
@@ -101,7 +101,7 @@ $('#createGraph').click(function () {
     var purityReports = [];
     // Getting the purity reports lists
     reports.forEach(function (report) {
-        if (report.reportType === 'purity') {
+        if (report.reportType === 'Purity') {
             var repDate = new Date(report.timeS);
             if (JSON.stringify(repDate.getUTCFullYear()) === year) {
                 console.log("I am In");
@@ -146,10 +146,10 @@ function isInRequestedRange(report, lat, lng) {
         && report.longitude > lng - 10;
 }
 
-$('#closeGraph').click(function () {
+function closeHistoryGraph() {
     $('#myModalHistory').modal('hide');
     window.location.href = window.location.href;
-})
+}
 
 function drawChart(ppm, ppmdata) {
     var ctx = document.getElementById('canvas').getContext('2d');
@@ -170,10 +170,6 @@ function drawChart(ppm, ppmdata) {
         pointDotRadius: 10,
     });
 }
-//
-// function getPpmbyMonths() {
-//
-// }
 
 function removeCurrentUser() {
     users.forEach(function (item) {
@@ -189,6 +185,3 @@ $('#logOut').click(function () {
     window.location.href = 'index.html';
 });
 
-
-console.log(reports);
-console.log(JSON.parse(sessionStorage.getItem('currentUser')));
