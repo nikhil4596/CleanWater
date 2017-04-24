@@ -33,11 +33,16 @@ function User(email, password, role, name, address) {
 }
 
 function verifyPass() {
-    if (txtregisterPassword.value === txtregisterPassword2.value) {
-        return true;
+    if (txtregisterPassword.value.length > 3) {
+        if (txtregisterPassword.value === txtregisterPassword2.value) {
+            return true;
+        } else {
+            document.getElementById('retypePass').innerHTML = "Retype Password - Passwords do not match!";
+            document.getElementById('retypePass').focus();
+        }
     } else {
-        document.getElementById('retypePass').innerHTML += " - Passwords do not match!";
-        document.getElementById('retypePass').focus();
+        document.getElementById('passRegister').innerHTML = "Password - Password too short!";
+        document.getElementById('passRegister').focus();
     }
 }
 
