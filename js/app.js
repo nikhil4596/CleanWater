@@ -104,9 +104,7 @@ $('#createGraph').click(function () {
         if (report.reportType === 'Purity') {
             var repDate = new Date(report.timeS);
             if (JSON.stringify(repDate.getUTCFullYear()) === year) {
-                console.log("I am In");
                 if (isInRequestedRange(report, lat,long)) {
-                    console.log("FUCK YEAH");
                     purityReports.push(report);
                 }
             }
@@ -126,7 +124,6 @@ $('#createGraph').click(function () {
         }
     });
     var ppmData = [];
-    var idx = 0;
     ppmLists.forEach(function (mnth) {
         if (mnth.length > 0) {
             ppmData.push((mnth.reduce((a, b) => a + b, 0)) / mnth.length);
@@ -134,7 +131,6 @@ $('#createGraph').click(function () {
             ppmData.push(0);
         }
     });
-    console.log(ppmData);
     drawChart(ppm, ppmData);
 });
 
