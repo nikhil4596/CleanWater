@@ -42,30 +42,35 @@ function verifyPass() {
 }
 
 $('#register').click(function(){
-    if (verifyPass()) {
-        var email = txtregisterEmail.value;
-        var pass = txtregisterPassword.value;
-        var role = txtregisterRole.value;
-        var novel = true;
-        users.forEach(function (user) {
-            if (user.email === email) {
-                novel = false;
+    if (txtregisterEmail.value.length > 2) {
+        if (verifyPass()) {
+            var email = txtregisterEmail.value;
+            var pass = txtregisterPassword.value;
+            var role = txtregisterRole.value;
+            var novel = true;
+            users.forEach(function (user) {
+                if (user.email === email) {
+                    novel = false;
+                }
+            });
+            if (novel) {
+                currentUser = new User(email, pass, role, email, 'N/A');
+                users.push(currentUser);
+                console.log("Created you" + currentUser.userRole);
+                sessionStorage.setItem('users', JSON.stringify(users));
+                sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+                window.location.href = "main.html";
+            } else {
+                document.getElementById('emailLabel2').innerHTML = "Email Address - User already exists!";
+                document.getElementById('emailLabel2').focus();
+                console.log("User already exists");
             }
-        });
-        if (novel) {
-            currentUser = new User(email, pass, role, email, 'N/A');
-            users.push(currentUser);
-            console.log("Created you" + currentUser.userRole);
-            sessionStorage.setItem('users', JSON.stringify(users));
-            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
-            window.location.href = "main.html";
         } else {
-            document.getElementById('emailLabel2').innerHTML = "Email Address - User already exists!";
-            document.getElementById('emailLabel2').focus();
-            console.log("User already exists");
+            console.log("Passwords do not match!");
         }
     } else {
-        console.log("Passwords do not match!");
+        document.getElementById('emailLabel2').innerHTML = "Email Address - Email too Short!";
+        document.getElementById('emailLabel2').focus();
     }
 });
 //
