@@ -37,7 +37,7 @@ function verifyPass() {
         if (txtregisterPassword.value === txtregisterPassword2.value) {
             return true;
         } else {
-            document.getElementById('retypePass').innerHTML = "Retype Password - Passwords do not match!";
+            document.getElementById('retypePass').innerHTML = "Repeat Password - Passwords do not match!";
             document.getElementById('retypePass').focus();
         }
     } else {
@@ -45,9 +45,13 @@ function verifyPass() {
         document.getElementById('passRegister').focus();
     }
 }
+function verifyEmail() {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(txtregisterEmail.value);
+}
 
 $('#register').click(function(){
-    if (txtregisterEmail.value.length > 2) {
+    if (verifyEmail()) {
         if (verifyPass()) {
             var email = txtregisterEmail.value;
             var pass = txtregisterPassword.value;
@@ -74,7 +78,7 @@ $('#register').click(function(){
             console.log("Passwords do not match!");
         }
     } else {
-        document.getElementById('emailLabel2').innerHTML = "Email Address - Email too Short!";
+        document.getElementById('emailLabel2').innerHTML = "Email Address - Invalid Email";
         document.getElementById('emailLabel2').focus();
     }
 });
