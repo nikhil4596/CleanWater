@@ -38,6 +38,12 @@ function PurityReport(email, waterCondition, virus, contaminant, latitude, longi
 }
 $(document).ready(function () {
     document.getElementById('descrp').innerHTML += currentUser.name;
+    console.log(currentUser);
+});
+
+$('#editProfile').click(function () {
+    document.getElementById('editName').value = currentUser.name;
+    document.getElementById('editAddress').value = currentUser.address;
 });
 
 $('#editProfileSubmit').click(function () {
@@ -176,7 +182,6 @@ function removeCurrentUser() {
     })
 }
 $('#logOut').click(function () {
-    console.log("logged you out bithc");
     currentUser = null;
     window.location.href = 'index.html';
 });

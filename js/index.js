@@ -103,10 +103,16 @@ $('#login').click(function(){
     var email = txtsignInEmail.value;
     var pass = txtsignInPassword.value;
     var role;
+    var name;
+    var address;
     if (currentUser === null) {
         role = 'N/A';
+        name = email;
+        address = 'N/A';
     } else {
         role = currentUser.userRole;
+        name = currentUser.name;
+        address = currentUser.address;
     }
     var auth = false;
     users.forEach(function (user) {
@@ -115,7 +121,7 @@ $('#login').click(function(){
         }
     });
     if (auth) {
-        currentUser = new User(email, pass, role, email, 'N/A');
+        currentUser = new User(email, pass, role, name, address);
         users.push(currentUser);
         console.log("Logged you in!" + currentUser);
         sessionStorage.setItem('users',JSON.stringify(users));
